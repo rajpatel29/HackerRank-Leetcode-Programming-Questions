@@ -10,36 +10,51 @@
 
 package _2_SUM;
 
+import java.util.HashMap;
+
 public class MainClass 
 {
 	public static void main(String[] args) 
 	{
-		int array[] = {2, 7, 11, 15};
-		int result[] = twoSum(array , 9);
+		int array[] = {3,2,4};
+		int result[] = twoSum(array , 6);
 		
 		for (int i = 0; i < result.length; i++) 
 		{
 			System.out.println(result[i]);
 		}
 	}
-	
+		
 	public static int[] twoSum(int[] nums, int target) 
 	{
         int result[] = new int[2];	
+        HashMap<Integer , Integer> map = new HashMap<>();
         
-        for(int i = 0 ; i < nums.length - 1 ; i++)
+        for (int i = 0; i < nums.length ;  i++)
         {
-            for(int j = i + 1 ; j < nums.length ; j++ )
-            {
-                if(target == nums[i] + nums[j])
-                {
-                    result[0] =  i;
-                    result[1] =  j;
-                    return result;
-                }
-            }
-        }
+        	if(map.containsKey(nums[i]))
+        	{
+        		if(nums[i] * 2 == target)
+        		{
+        			result[0] = map.get(nums[i]);
+   					result[1] = i;
+   					return result;
+        		}
+        	}
+        	else
+			map.put(nums[i], i);
+		}
         
+        for(Integer element : map.keySet())
+        {
+        	if(map.containsKey(target - element))
+        	{
+        		result[0] = map.get(element);
+				result[1] = map.get(target - element);
+				return result;
+        	}
+        }
+
         return result;
     }
 }
