@@ -30,6 +30,7 @@ public class MainClass
 	
 		List<List<Integer>> result = fourSum(array, target);
 		
+		//prints out the result
 		for (int i = 0; i < result.size(); i++) 
 		{
 			List<Integer> list = result.get(i);
@@ -44,7 +45,6 @@ public class MainClass
 	
 	public static List<List<Integer>> fourSum(int[] nums, int target) 
 	{
-		
 		//key will be sum of two numbers and value will be two numbers that we are adding
 		//value will be of type nested ArrayList<> because sum of two different values may be same
 		//(ex. sum1 = -1, 1 sum2 =  0, 0 both sum are same but values are different)
@@ -75,13 +75,13 @@ public class MainClass
 		//just to remove duplicates we will use HashSet then we will add it to ArrayList
 		HashSet<ArrayList<Integer>> set = new HashSet<>();
 		
-		//now we will iterate through HashMap and we will check whether target - key is in the list
+		//now we will iterate through HashMap and we will check whether target - currentKey is in the list
 		//if it is then sum of all different numbers will be equal to target value
 		for(Integer key : map.keySet())
 		{
 			ArrayList<ArrayList<Integer>> outer = map.get(key);
 			
-			//if so then we will sum = 0
+			//if so then we will have sum = 0
 			if(map.containsKey(target - key) )
 			{
 				if( target - key == key && outer.size() == 1)

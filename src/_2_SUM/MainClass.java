@@ -24,12 +24,16 @@ public class MainClass
 			System.out.println(result[i]);
 		}
 	}
-		
+	
+	//Brute force time complexity is O(n2)
+	//time complexity of below method is O(n) using HashMap
 	public static int[] twoSum(int[] nums, int target) 
 	{
         int result[] = new int[2];	
         HashMap<Integer , Integer> map = new HashMap<>();
         
+        //Initializes HashMap
+        //key is input variable and value is index value of input variable in the array
         for (int i = 0; i < nums.length ;  i++)
         {
         	if(map.containsKey(nums[i]))
@@ -45,6 +49,8 @@ public class MainClass
 			map.put(nums[i], i);
 		}
         
+        //then we will look for a key whose value is target - currentKey
+        //If so then we will have sum of those two keys 0
         for(Integer element : map.keySet())
         {
         	if(map.containsKey(target - element))

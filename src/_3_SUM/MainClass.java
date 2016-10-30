@@ -26,9 +26,12 @@ public class MainClass
 		System.out.println(answer);
 	}
 	
+	//time complexity of Brute force will be O(n3)
+	//time complexity of below method is O(n2)
 	public static List<List<Integer>>  threeSum(int[] array) 
     {
         ArrayList<List<Integer>> res = new ArrayList<>() ;
+        //to remove duplicates we need to use HashSet
         HashSet<ArrayList<Integer>> result = new HashSet<>();
 
 		if(array == null && array.length < 3)
@@ -36,8 +39,11 @@ public class MainClass
 			return null;
 		}
 		
+		//sort the array
 		Arrays.sort(array);
 		
+		//then we will use two pointer start and end. 
+		//start and stop pointer will change according to proximity to target
 		for (int i = 0; i < array.length - 2; i++)
 		{
 			int start = i + 1;
@@ -45,6 +51,7 @@ public class MainClass
 			
 			while(start < end)
 			{
+				//if we find sum = 0 then add solution in HashSet
 				if(array[i] + array[start] + array[end] == 0 )
 				{
 					ArrayList<Integer> solution = new ArrayList<>();
@@ -57,6 +64,11 @@ public class MainClass
 				}
 				else
 				{
+					//if sum of the input is bigger then target then we will reduce end pointer
+					//that way end pointer will point to smaller number because array is sorted
+					
+					//if sum of the input is smaller then target then we will increment start pointer
+					//that way start pointer will point to bigger number because array is sorted
 					if(array[i] + array[start] + array[end] < 0)
 					{
 						start++;
@@ -69,7 +81,7 @@ public class MainClass
 			}
 		}
 		
-		//to remove duplicates we need to use Hashset
+		//add all the elements of HashSet in ArrayList
         res.addAll(result);
 		return res;    
     }
