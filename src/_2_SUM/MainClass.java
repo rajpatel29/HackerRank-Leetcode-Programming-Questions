@@ -41,8 +41,8 @@ public class MainClass
         		if(nums[i] * 2 == target)
         		{
         			result[0] = map.get(nums[i]);
-   				result[1] = i;
-   				return result;
+   					result[1] = i;
+   					return result;
         		}
         	}
         	else
@@ -56,8 +56,8 @@ public class MainClass
         	if(map.containsKey(target - element))
         	{
         		result[0] = map.get(element);
-			result[1] = map.get(target - element);
-			return result;
+				result[1] = map.get(target - element);
+				return result;
         	}
         }
 

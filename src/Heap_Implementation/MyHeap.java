@@ -10,7 +10,7 @@ public class MyHeap
 		elements = new int[20];
 	}
 	
-	//insert new value in the heap and re arrange the heap
+	//insert new value in the heap and rearrange the heap
 	public void insert(int value)
 	{
 		//check whether heap is empty or not
@@ -41,7 +41,7 @@ public class MyHeap
 		}
 	}
 	
-	//deletes root of the child and rearrange the heap
+	//deletes root of the tree and rearrange the heap
 	public int delete()
 	{
 		int largestElement = 0;
@@ -62,7 +62,7 @@ public class MyHeap
 		//check if any of the child is bigger than the parent
 		while(elements[currentIndex] < elements[childIndex1] || elements[currentIndex] < elements[childIndex2])
 		{
-			//if any of the parent is bigger than the parent then find child that is bigger than other childs
+			//if any of the parent is bigger than the parent then find child that is bigger than other child
 			if(elements[childIndex1] > elements[childIndex2])
 			{
 				//change child element and parent element
