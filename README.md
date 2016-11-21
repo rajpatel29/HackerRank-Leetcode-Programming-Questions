@@ -1,3 +1,2 @@
-# Interview
 
 LeetCode, HackerRank Problems
